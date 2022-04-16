@@ -37,9 +37,9 @@
     <div class="wrapper">
 
         <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
+        <!-- <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="../assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-        </div>
+        </div> -->
 
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -83,9 +83,18 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a href="kategori.php" class="nav-link">
-                                <i class="nav-icon far fa-file"></i>
+                                <i class="nav-icon fas fa-file"></i>
                                 <p>
                                     Kategori
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="user.php" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Pengguna
                                 </p>
                             </a>
                         </li>
