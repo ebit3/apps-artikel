@@ -30,10 +30,10 @@ function add_kategori($data)
 
     if ($cek > 0) {
 
-        echo "berhasil";
+        header('location:kategori.php');
     } else {
 
-        echo "gagal" . mysqli_error($conn);
+        echo "<script>alert('Tambah Data Gagal');history.go(-1);</script>" . mysqli_error($conn);
     }
 
     return $cek;
@@ -46,4 +46,16 @@ function show_kategori($query)
     # code...
 
     $conn = koneksi();
+
+    $sql = mysqli_query($conn, $query);
+
+    $rows = [];
+
+    while ($row = mysqli_fetch_assoc($sql)) {
+        # code...
+
+        $rows[] = $row;
+    }
+
+    return $rows;
 }

@@ -1,3 +1,11 @@
+<?php
+
+require_once "function/fungsi.php";
+
+$rows = show_kategori("SELECT * FROM tb_kategori");
+
+?>
+
 <?php include 'layout/header.php'; ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -39,18 +47,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Trident</td>
-                                        <td>
-                                            <a href="" class="btn btn-warning btn-sm">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <a href="" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+
+                                    <?php foreach ($rows as $no => $data) : ?>
+
+                                        <tr>
+                                            <td><?= $no + 1 ?></td>
+                                            <td><?= $data['kategori'] ?></td>
+                                            <td>
+                                                <a href="" class="btn btn-warning btn-sm">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a href="" class="btn btn-danger btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                    <?php endforeach; ?>
+
                                 </tbody>
                             </table>
                         </div>
