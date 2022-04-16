@@ -57,7 +57,7 @@ $rows = show_kategori("SELECT * FROM tb_kategori");
                                                 <a href="" class="btn btn-warning btn-sm">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <a href="" class="btn btn-danger btn-sm">
+                                                <a href="kategori-drop.php?id=<?= $data['id_kategori'] ?>" class="btn btn-danger btn-sm">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>

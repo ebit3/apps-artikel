@@ -59,3 +59,27 @@ function show_kategori($query)
 
     return $rows;
 }
+
+
+
+// drop kategori
+function drob_kategori($id)
+{
+    # code...
+
+    $conn = koneksi();
+
+    mysqli_query($conn, "DELETE FROM tb_kategori WHERE id_kategori = '" . $id . "' ");
+
+    $cek = mysqli_affected_rows($conn);
+
+    if ($cek > 0) {
+
+        header('location:kategori.php');
+    } else {
+
+        echo "<script>alert('Hapus Data Gagal');history.go(-1);</script>" . mysqli_error($conn);
+    }
+
+    return $cek;
+}
