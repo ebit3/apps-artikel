@@ -49,17 +49,49 @@ function show_kategori($query)
 
     $sql = mysqli_query($conn, $query);
 
-    $rows = [];
 
-    while ($row = mysqli_fetch_assoc($sql)) {
-        # code...
+    if (mysqli_num_rows($sql) === 1) {
 
-        $rows[] = $row;
+        return mysqli_fetch_assoc($sql);
+    } else {
+
+        $rows = [];
+
+        while ($row = mysqli_fetch_assoc($sql)) {
+            # code...
+
+            $rows[] = $row;
+        }
+
+        return $rows;
     }
-
-    return $rows;
 }
 
+
+// edit kategori
+function edit_kategori($data)
+{
+    $conn = koneksi();
+
+    $id = $data['id'];
+    $kategori = $data['kategori'];
+
+    $sql = "UPDATE tb_kategori SET kategori = '" . $kategori . "' WHERE id_kategori = '" . $id . "' ";
+
+    mysqli_query($conn, $sql);
+
+    $cek = mysqli_affected_rows($conn);
+
+    if ($cek > 0) {
+
+        header('location:kategori.php');
+    } else {
+
+        echo "<script>alert('Edit Data Gagal');history.go(-1);</script>" . mysqli_error($conn);
+    }
+
+    return $cek;
+}
 
 
 // drop kategori
