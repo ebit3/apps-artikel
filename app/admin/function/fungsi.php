@@ -49,22 +49,30 @@ function show_kategori($query)
 
     $sql = mysqli_query($conn, $query);
 
+    $rows = [];
 
-    if (mysqli_num_rows($sql) === 1) {
+    while ($row = mysqli_fetch_assoc($sql)) {
+        # code...
 
-        return mysqli_fetch_assoc($sql);
-    } else {
-
-        $rows = [];
-
-        while ($row = mysqli_fetch_assoc($sql)) {
-            # code...
-
-            $rows[] = $row;
-        }
-
-        return $rows;
+        $rows[] = $row;
     }
+
+    return $rows;
+}
+
+
+// show id kategori
+function show_id_kategori($query)
+{
+    # code...
+
+    $conn = koneksi();
+
+    $sql = mysqli_query($conn, $query);
+
+    $row = mysqli_fetch_assoc($sql);
+
+    return $row;
 }
 
 
@@ -117,7 +125,7 @@ function drob_kategori($id)
 }
 
 
-// show pengguna
+// show user
 function show_user($query)
 {
     # code...
@@ -126,23 +134,17 @@ function show_user($query)
 
     $sql = mysqli_query($conn, $query);
 
+    $rows = [];
 
-    if (mysqli_num_rows($sql) === 1) {
+    while ($row = mysqli_fetch_assoc($sql)) {
+        # code...
 
-        return mysqli_fetch_assoc($sql);
-    } else {
-
-        $rows = [];
-
-        while ($row = mysqli_fetch_assoc($sql)) {
-            # code...
-
-            $rows[] = $row;
-        }
-
-        return $rows;
+        $rows[] = $row;
     }
+
+    return $rows;
 }
+
 
 
 // add user
@@ -154,7 +156,7 @@ function add_user($data)
 
     $nama = stripslashes($data['nama']);
     $user = stripslashes(strtolower($data['username']));
-    $pass = mysqli_real_escape_string($conn, $data['password']);
+    $pass = mysqli_escape_string($conn, $data['password']);
     $role = $data['role'];
 
     $gambar = upload();
@@ -164,7 +166,7 @@ function add_user($data)
         return false;
     }
 
-    $pass = password_hash($pass, PASSWORD_DEFAULT);
+    // $pass = password_hash($pass, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO tb_user VALUES(NULL, '" . $nama . "', '" . $user . "', '" . $pass . "', '" . $gambar . "', '" . $role . "')";
 

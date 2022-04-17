@@ -2,7 +2,7 @@
 
 require_once "function/fungsi.php";
 
-$rows = show_user("SELECT * FROM tb_user");
+$row = show_user("SELECT * FROM tb_user");
 
 ?>
 
@@ -50,18 +50,18 @@ $rows = show_user("SELECT * FROM tb_user");
                                 </thead>
                                 <tbody>
 
-                                    <?php foreach ($rows as  $data) : ?>
+                                    <?php foreach ($row as $no => $roe) : ?>
 
                                         <tr>
-
-                                            <td><?= $data['nama'] ?></td>
-                                            <td><?= $data['username'] ?></td>
-                                            <td><?= $data['role'] ?></td>
+                                            <td><?= $no + 1 ?></td>
+                                            <td><?= $roe['nama'] ?></td>
+                                            <td><?= $roe['username'] ?></td>
+                                            <td><?= $roe['role'] ?></td>
                                             <td>
-                                                <a href="user-edit.php?id=<?= $data['id_user'] ?>" class="btn btn-warning btn-sm">
+                                                <a href="user-edit.php?id=<?= $roe['id_user'] ?>" class="btn btn-warning btn-sm">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <a href="user-drop.php?id=<?= $data['id_user'] ?>" class="btn btn-danger btn-sm">
+                                                <a href="user-drop.php?id=<?= $roe['id_user'] ?>" class="btn btn-danger btn-sm">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>

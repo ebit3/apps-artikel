@@ -4,7 +4,7 @@ require_once 'function/fungsi.php';
 
 $id = $_GET['id'];
 
-$rows = show_kategori("SELECT * FROM tb_kategori WHERE id_kategori = '" . $id . "' ");
+$rows = show_id_kategori("SELECT * FROM tb_kategori WHERE id_kategori = '" . $id . "' ");
 
 if (isset($_POST['submit'])) {
 
