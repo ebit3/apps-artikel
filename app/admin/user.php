@@ -58,8 +58,8 @@ $row = show_user("SELECT * FROM tb_user");
                                             <td><?= $roe['username'] ?></td>
                                             <td><?= $roe['role'] ?></td>
                                             <td>
-                                                <a href="user-edit.php?id=<?= $roe['id_user'] ?>" class="btn btn-warning btn-sm">
-                                                    <i class="fas fa-edit"></i>
+                                                <a href="user-detail.php?id=<?= $roe['id_user'] ?>" class="btn btn-primary btn-sm">
+                                                    <i class="fas fa-eye"></i>
                                                 </a>
                                                 <a href="user-drop.php?id=<?= $roe['id_user'] ?>" class="btn btn-danger btn-sm">
                                                     <i class="fas fa-trash"></i>

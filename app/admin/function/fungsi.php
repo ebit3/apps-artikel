@@ -269,3 +269,18 @@ function drob_user($id)
 
     return $cek;
 }
+
+
+// show id kategori
+function show_id_user($query)
+{
+    # code...
+
+    $conn = koneksi();
+
+    $sql = mysqli_query($conn, $query);
+
+    $row = mysqli_fetch_assoc($sql);
+
+    return $row;
+}
